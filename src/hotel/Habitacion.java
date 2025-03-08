@@ -83,6 +83,13 @@ public class Habitacion {
     public String toString() {
         return "Habitacion\n" + "Numero: " + numero + "\nTipo: " + tipo + "\nPrecio por Noche: " + precioNoche + "\nDisponible: " + disponible + "\nCapacidad: " + capacidad + "\nTiene Wifi:" + tieneWifi + "\nTiene Mini Bar:" + tieneMiniBar;
     }
-    
-    
+    public double precioTotal(int numeroNoches){
+        return precioNoche*numeroNoches;
+    }
+    public void descuento(double porcentaje){
+        if (porcentaje > 0 && porcentaje <= 100) {
+            double descuento = precioNoche * (porcentaje/100);
+            precioNoche -= descuento;
+        }
+    }
 }

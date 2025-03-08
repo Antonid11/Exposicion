@@ -78,6 +78,21 @@ public class Huesped {
     public void setNacionalidad(String nacionalidad) {
         this.nacionalidad = nacionalidad;
     }
+
+    @Override
+    public String toString() {
+        return "Huesped: " + nombre + " " + apellido + "\nDNI: " + dni + "\nTelefono: " + telefono + "\nEmail: " + email + "\nEdad: " + edad + "\nNacionalidad: " + nacionalidad;
+    }
     
+    public String nombreCompleto(){
+        return nombre + " " + apellido;
+    }
     
+    public boolean esMayorDeEdad(){
+        return edad >= 18;
+    }
+    
+    public boolean descuentoAplicable(){
+        return edad > 59 || edad < 12;
+    }
 }
