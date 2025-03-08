@@ -4,10 +4,80 @@
  */
 package hotel;
 
-/**
- *
- * @author mayel
- */
 public class Habitacion {
+    private int numero;
+    private String tipo;
+    private double precioNoche;
+    private boolean disponible;
+    private int capacidad;
+    private boolean tieneWifi;
+    private boolean tieneMiniBar;
+
+    public Habitacion(int numero, String tipo, double precioNoche, int capacidad, boolean tieneWifi, boolean tieneMiniBar) {
+        this.numero = numero;
+        this.tipo = tipo;
+        this.precioNoche = precioNoche;
+        this.disponible = true; //Siempre estara disponible por defecto
+        this.capacidad = capacidad;
+        this.tieneWifi = tieneWifi;
+        this.tieneMiniBar = tieneMiniBar;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public double getPrecioNoche() {
+        return precioNoche;
+    }
+
+    public void setPrecioNoche(double precioNoche) {
+        this.precioNoche = precioNoche;
+    }
+
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
+
+    public int getCapacidad() {
+        return capacidad;
+    }
+
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
+    }
+
+    public boolean isTieneWifi() {
+        return tieneWifi;
+    }
+
+    public void setTieneWifi(boolean tieneWifi) {
+        this.tieneWifi = tieneWifi;
+    }
+
+    public boolean isTieneMiniBar() {
+        return tieneMiniBar;
+    }
+
+    public void setTieneMiniBar(boolean tieneMiniBar) {
+        this.tieneMiniBar = tieneMiniBar;
+    }
+    
     
 }

@@ -4,10 +4,6 @@
  */
 package hotel;
 
-/**
- *
- * @author mayel
- */
-public class Usuario {
+public class Huesped {
     
 }

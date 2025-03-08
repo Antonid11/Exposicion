@@ -4,17 +4,12 @@
  */
 package hotel;
 
-/**
- *
- * @author mayel
- */
+import java.util.Scanner;
+
 public class Hotel {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner sc = new Scanner(System.in);
     }
-    
+
 }
