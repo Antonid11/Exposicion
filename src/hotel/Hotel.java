@@ -22,16 +22,12 @@ public class Hotel {
             System.out.println("---REGISTRO DE NUEVO HUESPED---");
             System.out.print("Nombre: ");
             String nombre = sc.nextLine();
-            huesped.setNombre(nombre);
             System.out.print("Apellido: ");
             String apellido = sc.nextLine();
-            huesped.setApellido(apellido);
             System.out.print("DNI: ");
             String dni = sc.nextLine();
-            huesped.setDni(dni);
             System.out.print("Telefono: ");
             String telefono = sc.nextLine();
-            huesped.setTelefono(telefono);
             String email;
             boolean emailValido = false;
             do {
@@ -39,7 +35,6 @@ public class Hotel {
                 email = sc.nextLine();
                 if (huesped.emailValido(email)) { // solo si es valido se guarda el email
                     emailValido = true;
-                    huesped.setEmail(email);
                 } else {
                     System.out.println("Email no valido. Solo se aceptan correos con terminacion @gmail.com, @yahoo.es, @icloud.com, @yahoo.com o @hotmail.com");
                     System.out.println("Por favor, ingrese un email valido.");
@@ -48,10 +43,9 @@ public class Hotel {
             System.out.print("Edad: ");
             int edad = sc.nextInt();
             sc.nextLine();
-            huesped.setEdad(edad);
             System.out.print("Nacionalidad: ");
             String nacionalidad = sc.nextLine();
-            huesped.setNacionalidad(nacionalidad);
+            huesped = new Huesped(nombre, apellido, dni, telefono, email, edad, nacionalidad);//dandole los valores al huesped
             int personas;
             boolean numValido = false;
             do {
@@ -105,7 +99,7 @@ public class Hotel {
                 System.out.println(habitacion320.toString());
                 System.out.println();
                 System.out.println(habitacion487.toString());
-            } else if (personas>=3&&personas<=4) {
+            } else if (personas >= 3 && personas <= 4) {
                 System.out.println(habitacion487.toString());
             }
 
@@ -162,35 +156,44 @@ public class Hotel {
                     habitacionElegida.descuento(descuento);
                     total = habitacionElegida.precioTotal(noches);
                 }
-                habitacionElegida.setDisponible(false);
-                System.out.println("---RESERVA CONFIRMADA---");
-                System.out.println("Se ha realizado la reserva para " + huesped.nombreCompleto());
-                System.out.println("Habitacion: " + habitacionElegida.getNumero());
-                System.out.println("Numero de personas: " + personas);
-                System.out.println("Duracion: " + noches + " noches");
-                System.out.println("Precio total: " + total + "$");
-
-                System.out.println();
-                System.out.println("---ESTADO ACTUALIZADO DE HABITACIONES");
-                System.out.println(habitacion100.toString());
-                System.out.println();
-                System.out.println(habitacion204.toString());
-                System.out.println();
-                System.out.println(habitacion230.toString());
-                System.out.println();
-                System.out.println(habitacion250.toString());
-                System.out.println();
-                System.out.println(habitacion320.toString());
-                System.out.println();
-                System.out.println(habitacion487.toString());
-                System.out.println();
-                for (int i = 1; i <= noches; i++) {
-                    System.out.println("Ha pasado la noche " + i + " de " + noches + " noches");
+                if (huesped.presupuestoSuficiento(total)) {
+                    habitacionElegida.setDisponible(false);
+                    huesped.pago(total);
+                    
+                    System.out.println("---RESERVA CONFIRMADA---");
+                    System.out.println("Se ha realizado la reserva para " + huesped.nombreCompleto());
+                    System.out.println("Habitacion: " + habitacionElegida.getNumero());
+                    System.out.println("Numero de personas: " + personas);
+                    System.out.println("Duracion: " + noches + " noches");
+                    System.out.println("Precio total: " + total + "$");
+                    System.out.println();
+                    System.out.println("Presupuesto restante: "+huesped.getPresupuesto());
+                    System.out.println();
+                    System.out.println("---ESTADO ACTUALIZADO DE HABITACIONES");
+                    System.out.println(habitacion100.toString());
+                    System.out.println();
+                    System.out.println(habitacion204.toString());
+                    System.out.println();
+                    System.out.println(habitacion230.toString());
+                    System.out.println();
+                    System.out.println(habitacion250.toString());
+                    System.out.println();
+                    System.out.println(habitacion320.toString());
+                    System.out.println();
+                    System.out.println(habitacion487.toString());
+                    System.out.println();
+                    for (int i = 1; i <= noches; i++) {
+                        System.out.println("Ha pasado la noche " + i + " de " + noches + " noches");
+                    }
+                    habitacionElegida.setDisponible(true);
+                    System.out.println();
+                    System.out.println("El huesped " + huesped.nombreCompleto() + " ha completado su estadia");
+                    System.out.println("La habitacion " + habitacionElegida.getNumero() + " esta nuevamente disponible");
+                } else {
+                    System.out.println("No se puede realizar la reserva. El huesped no tiene suficiente presupuesto.");
+                    System.out.println("Presupuesto actual: "+huesped.getPresupuesto()+"$");
+                    System.out.println("Costo de la reserva: "+total+"$");
                 }
-                habitacionElegida.setDisponible(true);
-                System.out.println();
-                System.out.println("El huesped " + huesped.nombreCompleto() + " ha completado su estadia");
-                System.out.println("La habitacion " + habitacionElegida.getNumero() + " esta nuevamente disponible");
             } else {
                 if (!huesped.esMayorDeEdad()) {
                     System.out.println("No se puede realizar la reserva. El huesped debe ser mayor de edad.");

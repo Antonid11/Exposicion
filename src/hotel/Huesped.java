@@ -12,9 +12,10 @@ public class Huesped {
     private String email;
     private int edad;
     private String nacionalidad;
+    private double presupuesto = 5000.0;
 
     public Huesped() {
-        
+        this.presupuesto = 5000.0;
     }
 
     public Huesped(String nombre, String apellido, String dni, String telefono, String email, int edad, String nacionalidad) {
@@ -25,6 +26,7 @@ public class Huesped {
         this.email = email;
         this.edad = edad;
         this.nacionalidad = nacionalidad;
+        this.presupuesto = 5000.0;
     }
 
     public String getNombre() {
@@ -83,9 +85,18 @@ public class Huesped {
         this.nacionalidad = nacionalidad;
     }
 
+    public double getPresupuesto() {
+        return presupuesto;
+    }
+
+    public void setPresupuesto(double presupuesto) {
+        this.presupuesto = presupuesto;
+    }
+
+    
     @Override
     public String toString() {
-        return "Huesped: " + nombre + " " + apellido + "\nDNI: " + dni + "\nTelefono: " + telefono + "\nEmail: " + email + "\nEdad: " + edad + "\nNacionalidad: " + nacionalidad;
+        return "Huesped: " + nombre + " " + apellido + "\nDNI: " + dni + "\nTelefono: " + telefono + "\nEmail: " + email + "\nEdad: " + edad + "\nNacionalidad: " + nacionalidad +"\nPresupuesto: "+presupuesto;
     }
     
     public String nombreCompleto(){
@@ -97,7 +108,7 @@ public class Huesped {
     }
     
     public boolean descuentoAplicable(){
-        return edad > 59 || edad < 12; // personas mayores de 59 años y menores de 12 se les aplica el descuento
+        return edad > 59 || edad < 12; // personas de 60 años o mas años y menores de 12 se les aplica el descuento
     }
     public boolean emailValido(String email){ //validacion de los dominios que utiliza el hotel
         String [] validos = {"@gmail.com","@yahoo.es","@icloud.com","@yahoo.com","@hotmail.com"};
@@ -110,5 +121,15 @@ public class Huesped {
             }
         }
         return false;
+    }
+    public boolean pago(double cantidad){
+        if (cantidad <= presupuesto) {
+            presupuesto -= cantidad;
+            return true;
+        }
+        return false;
+    }
+    public boolean presupuestoSuficiento(double cantidad){
+        return presupuesto >= cantidad;
     }
 }
