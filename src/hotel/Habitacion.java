@@ -13,6 +13,10 @@ public class Habitacion {
     private boolean tieneWifi;
     private boolean tieneMiniBar;
 
+    public Habitacion() {
+        
+    }
+    
     public Habitacion(int numero, String tipo, double precioNoche, int capacidad, boolean tieneWifi, boolean tieneMiniBar) {
         this.numero = numero;
         this.tipo = tipo;
