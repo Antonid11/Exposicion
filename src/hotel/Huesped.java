@@ -93,6 +93,18 @@ public class Huesped {
     }
     
     public boolean descuentoAplicable(){
-        return edad > 59 || edad < 12;
+        return edad > 59 || edad < 12; // personas mayores de 59 años y menores de 12 se les aplica el descuento
+    }
+    public boolean emailValido(String email){ //validacion de los dominios que utiliza el hotel
+        String [] validos = {"@gmail.com","@yahoo.es","@icloud.com","@yahoo.com","@hotmail.com"};
+        if (email.isBlank()||email.isEmpty()) {
+            return false;
+        }
+        for (int i = 0; i < validos.length; i++) {
+            if (email.toLowerCase().endsWith(validos[i])) {
+                return true;
+            }
+        }
+        return false;
     }
 }
