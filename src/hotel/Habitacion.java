@@ -81,7 +81,7 @@ public class Habitacion {
 
     @Override
     public String toString() {
-        return "Habitacion\n" + "Numero: " + numero + "\nTipo: " + tipo + "\nPrecio por Noche: " + precioNoche + "\nDisponible: " + disponible + "\nCapacidad: " + capacidad + "\nTiene Wifi:" + tieneWifi + "\nTiene Mini Bar:" + tieneMiniBar;
+        return "Habitacion: " + numero + "\nTipo: " + tipo + "\nPrecio por Noche: " + precioNoche + "\nDisponible: " + disponible + "\nCapacidad: " + capacidad + "\nTiene Wifi:" + tieneWifi + "\nTiene Mini Bar:" + tieneMiniBar;
     }
     public double precioTotal(int numeroNoches){
         return precioNoche*numeroNoches;

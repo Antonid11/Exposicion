@@ -13,6 +13,10 @@ public class Huesped {
     private int edad;
     private String nacionalidad;
 
+    public Huesped() {
+        
+    }
+
     public Huesped(String nombre, String apellido, String dni, String telefono, String email, int edad, String nacionalidad) {
         this.nombre = nombre;
         this.apellido = apellido;
