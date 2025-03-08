@@ -78,6 +78,11 @@ public class Habitacion {
     public void setTieneMiniBar(boolean tieneMiniBar) {
         this.tieneMiniBar = tieneMiniBar;
     }
+
+    @Override
+    public String toString() {
+        return "Habitacion\n" + "Numero: " + numero + "\nTipo: " + tipo + "\nPrecio por Noche: " + precioNoche + "\nDisponible: " + disponible + "\nCapacidad: " + capacidad + "\nTiene Wifi:" + tieneWifi + "\nTiene Mini Bar:" + tieneMiniBar;
+    }
     
     
 }
