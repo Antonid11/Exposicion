@@ -5,6 +5,7 @@
 package hotel;
 
 public class Huesped {
+
     private String nombre;
     private String apellido;
     private String dni;
@@ -93,26 +94,26 @@ public class Huesped {
         this.presupuesto = presupuesto;
     }
 
-    
     @Override
     public String toString() {
-        return "Huesped: " + nombre + " " + apellido + "\nDNI: " + dni + "\nTelefono: " + telefono + "\nEmail: " + email + "\nEdad: " + edad + "\nNacionalidad: " + nacionalidad +"\nPresupuesto: "+presupuesto;
+        return "Huesped: " + nombre + " " + apellido + "\nDNI: " + dni + "\nTelefono: " + telefono + "\nEmail: " + email + "\nEdad: " + edad + "\nNacionalidad: " + nacionalidad + "\nPresupuesto: " + presupuesto;
     }
-    
-    public String nombreCompleto(){
+
+    public String nombreCompleto() {
         return nombre + " " + apellido;
     }
-    
-    public boolean esMayorDeEdad(){
+
+    public boolean esMayorDeEdad() {
         return edad >= 18;
     }
-    
-    public boolean descuentoAplicable(){
+
+    public boolean descuentoAplicable() {
         return edad > 59 || edad < 12; // personas de 60 años o mas años y menores de 12 se les aplica el descuento
     }
-    public boolean emailValido(String email){ //validacion de los dominios que utiliza el hotel
-        String [] validos = {"@gmail.com","@yahoo.es","@icloud.com","@yahoo.com","@hotmail.com"};
-        if (email.isBlank()||email.isEmpty()) {
+
+    public boolean emailValido(String email) { //validacion de los dominios que utiliza el hotel
+        String[] validos = {"@gmail.com", "@yahoo.es", "@icloud.com", "@yahoo.com", "@hotmail.com"};
+        if (email.isBlank() || email.isEmpty()) {
             return false;
         }
         for (int i = 0; i < validos.length; i++) {
@@ -122,14 +123,36 @@ public class Huesped {
         }
         return false;
     }
-    public boolean pago(double cantidad){
+
+    public boolean pago(double cantidad) {
         if (cantidad <= presupuesto) {
             presupuesto -= cantidad;
             return true;
         }
         return false;
     }
-    public boolean presupuestoSuficiento(double cantidad){
+
+    public boolean presupuestoSuficiento(double cantidad) {
         return presupuesto >= cantidad;
+    }
+
+    public boolean telefonoValido(String telefono) {
+        if (telefono.length() != 9) {
+            return false;
+        }
+        if (telefono.charAt(4) != '-') {
+            return false;
+        }
+        for (int i = 0; i < 4; i++) {
+            if (!Character.isDigit(telefono.charAt(i))) {
+                return false;
+            }
+        }
+        for (int i = 5; i < 9; i++) {
+            if (!Character.isDigit(telefono.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 }

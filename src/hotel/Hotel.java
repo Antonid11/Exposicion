@@ -26,8 +26,18 @@ public class Hotel {
             String apellido = sc.nextLine();
             System.out.print("DNI: ");
             String dni = sc.nextLine();
-            System.out.print("Telefono: ");
-            String telefono = sc.nextLine();
+            String telefono;
+            boolean telefonoValido = false;
+            do {
+                System.out.print("Telefono (formato xxxx-xxxx): ");
+                telefono = sc.nextLine();
+                if (huesped.telefonoValido(telefono)) {
+                    telefonoValido = true;
+                } else {
+                    System.out.println("Telefono no valido. El formato debe ser xxxx-xxxx");
+                    System.out.println("Por favor, ingrese un telefono valido.");
+                }
+            } while (!telefonoValido);
             String email;
             boolean emailValido = false;
             do {
