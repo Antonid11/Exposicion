@@ -8,7 +8,7 @@ public class Huesped {
 
     private String nombre;
     private String apellido;
-    private String dni;
+    private String identidad;
     private String telefono;
     private String email;
     private int edad;
@@ -22,7 +22,7 @@ public class Huesped {
     public Huesped(String nombre, String apellido, String dni, String telefono, String email, int edad, String nacionalidad) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.dni = dni;
+        this.identidad = dni;
         this.telefono = telefono;
         this.email = email;
         this.edad = edad;
@@ -47,11 +47,11 @@ public class Huesped {
     }
 
     public String getDni() {
-        return dni;
+        return identidad;
     }
 
     public void setDni(String dni) {
-        this.dni = dni;
+        this.identidad = dni;
     }
 
     public String getTelefono() {
@@ -96,7 +96,7 @@ public class Huesped {
 
     @Override
     public String toString() {
-        return "Huesped: " + nombre + " " + apellido + "\nDNI: " + dni + "\nTelefono: " + telefono + "\nEmail: " + email + "\nEdad: " + edad + "\nNacionalidad: " + nacionalidad + "\nPresupuesto: " + presupuesto;
+        return "Huesped: " + nombre + " " + apellido + "\nNumero de Identidad: " + identidad + "\nTelefono: " + telefono + "\nEmail: " + email + "\nEdad: " + edad + "\nNacionalidad: " + nacionalidad + "\nPresupuesto: " + presupuesto;
     }
 
     public String nombreCompleto() {

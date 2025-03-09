@@ -24,8 +24,22 @@ public class Hotel {
             String nombre = sc.nextLine();
             System.out.print("Apellido: ");
             String apellido = sc.nextLine();
-            System.out.print("DNI: ");
-            String dni = sc.nextLine();
+            String identidad;
+            boolean identidadValida = false;
+            do {
+                System.out.print("Numero de identidad: ");
+                identidad = sc.nextLine();
+                identidadValida = true;
+                for (int i = 0; i < identidad.length(); i++) {
+                    if (!Character.isDigit(identidad.charAt(i))) {
+                        identidadValida = false;
+                    }
+                }
+                if (!identidadValida) {
+                    System.out.println("Numero de identidad no valido. Solo debe contener numeros.");
+                    System.out.println("Por favor, ingrese un numero de identidad valido.");
+                }
+            } while (!identidadValida);
             String telefono;
             boolean telefonoValido = false;
             do {
@@ -55,7 +69,7 @@ public class Hotel {
             sc.nextLine();
             System.out.print("Nacionalidad: ");
             String nacionalidad = sc.nextLine();
-            huesped = new Huesped(nombre, apellido, dni, telefono, email, edad, nacionalidad);//dandole los valores al huesped
+            huesped = new Huesped(nombre, apellido, identidad, telefono, email, edad, nacionalidad);//dandole los valores al huesped
             int personas;
             boolean numValido = false;
             do {
