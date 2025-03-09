@@ -157,8 +157,8 @@ public class Hotel {
                     total = habitacionElegida.precioTotal(noches);
                 }
                 if (huesped.presupuestoSuficiento(total)) {
-                    habitacionElegida.setDisponible(false);
                     huesped.pago(total);
+                    habitacionElegida.setDisponible(false);
 
                     System.out.println();
                     System.out.println("---RESERVA CONFIRMADA---");
